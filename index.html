@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema posicional de escalas</title>
+  <script>
+    /* Aplica o tema salvo antes da primeira pintura, para não piscar. */
+    try {
+      var tema = localStorage.getItem("tema");
+      if (tema === "claro" || tema === "escuro") document.documentElement.dataset.tema = tema;
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="intro">
+      <h1>Sistema posicional de escalas</h1>
+      <p class="intro-p1">Uma escala não é uma lista de notas. É uma sequência de distâncias. É a sequência que dá à escala o seu som — as notas apenas informam onde ela começa.</p>
+      <div id="intro-mais" class="intro-mais">
+        <p>O sistema posicional parte daí. Cada distância recebe um valor: <strong>0</strong> para o semitom, <strong>1</strong> para o tom, <strong>10</strong> para o tom e meio. A escala é então dividida em blocos de três notas encadeados, onde a última nota de um bloco é a primeira do próximo. Cada bloco recebe um nome: a nota em que começa, seguida dos seus dois intervalos. Dó maior vira <strong>C11 E01 G11</strong>.</p>
+        <p>A partir daí, uma coisa útil acontece. Os mesmos blocos reaparecem em escalas diferentes, e cada bloco tem um número pequeno de desenhos possíveis no braço. Em vez de decorar vinte e uma escalas em doze tons, você aprende alguns blocos — e como encaixá-los.</p>
+      </div>
+      <button type="button" id="ler-mais" class="ler-mais" aria-expanded="false" aria-controls="intro-mais">Ler mais</button>
+      <p class="credito">Sistema posicional de escalas, criado por Nikolaos Hatzinikolaou.</p>
+    </header>
+
+    <section class="controles" aria-label="Escolha de escala e tom">
+      <label class="controle">Escala
+        <select id="sel-escala"></select>
+      </label>
+      <label class="controle">Tom
+        <select id="sel-tom"></select>
+      </label>
+      <button type="button" id="btn-tema" class="btn-tema"
+        title="Alterna entre tema automático (segue o sistema), claro e escuro"></button>
+    </section>
+
+    <section id="graus" class="graus" aria-label="Graus da escala"></section>
+
+    <section id="codigos" class="codigos" aria-label="Códigos dos grupos"></section>
+
+    <section id="colunas" class="colunas" aria-label="Diagramas de braço por grupo"></section>
+
+    <footer class="legenda-cores" aria-label="Legenda de cores">
+      <span class="chave"><span class="ponto ponto-tonica"></span> tônica</span>
+      <span class="chave"><span class="ponto ponto-tom"></span> alcançada por tom</span>
+      <span class="chave"><span class="ponto ponto-semitom"></span> por semitom</span>
+      <span class="chave"><span class="ponto ponto-tomemeio"></span> por tom e meio</span>
+      <span class="chave"><span class="ponto ponto-contexto"></span> nota da escala fora do grupo</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
